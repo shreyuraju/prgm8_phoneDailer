@@ -106,6 +106,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(phone.trim().equals("")) {
                     textInfo.setText("Please enter a Number to call!!!");
                 } else {
+                    if(phone.contains("#")){
+                        phone =  phone.replace("#","%23");
+                    }
                     Uri uri = Uri.parse("tel:"+phone);
                     Intent i = new Intent(Intent.ACTION_DIAL, uri);
                     try {
